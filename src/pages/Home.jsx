@@ -15,6 +15,7 @@ import {
   BookOpenCheck
 } from 'lucide-react';
 import teacherPhoto from '../assets/teacher.jpg';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -40,22 +41,18 @@ export default function Home() {
                 Индивидуальный подход к каждому ученику, подготовка к ОГЭ и ЕГЭ.
               </p>
               <div className="hero-buttons">
-                <motion.a 
-                  href="/materials" 
-                  className="btn primary"
+                <motion.div 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Учебные материалы
-                </motion.a>
-                <motion.a 
-                  href="/about" 
-                  className="btn secondary"
+                  <Link to="/materials" className="btn primary">Учебные материалы</Link>
+                </motion.div>
+                <motion.div 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  О школе
-                </motion.a>
+                  <Link to="/about" className="btn secondary">О школе</Link>
+                </motion.div>
               </div>
             </div>
             <motion.div
@@ -133,13 +130,11 @@ export default function Home() {
                 <div className="feature-icon">{feature.icon}</div>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-                <motion.a 
-                  href={feature.link}
-                  className="learn-more"
+                <motion.div 
                   whileHover={{ x: 5 }}
                 >
-                  Подробнее <ChevronRight size={16} />
-                </motion.a>
+                  <Link to={feature.link} className="learn-more">Подробнее <ChevronRight size={16} /></Link>
+                </motion.div>
               </motion.div>
             ))}
           </div>
